@@ -195,6 +195,15 @@
         // Dummy Chart Initialization
         new Chart(document.getElementById('trendChart'), { type: 'line', data: { labels: ['Jan','Feb','Mar','Apr','Mei','Jun'], datasets: [{ label: 'Arsip', data: [0,0,0,0,0,0], borderColor: '#10b981', fill: true }] } });
         new Chart(document.getElementById('typeChart'), { type: 'doughnut', data: { labels: ['PDF', 'Excel', 'Word'], datasets: [{ data: [0,0,0], backgroundColor: ['#f43f5e', '#10b981', '#3b82f6'] }] } });
+const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSzNktXmMOOuK4H7Ti5AsLp7aGUYMLurvyha-5X6eArA67k-6Ot68jolyNRU4XDQwG2BRq08CQp-egu/pub?output=csv';
+
+async function loadData() {
+    const response = await fetch(SPREADSHEET_URL);
+    const data = await response.text();
+    // Proses data CSV menjadi array untuk tabel Anda...
+    // Setelah data didapat, jalankan renderTable();
+}
+loadData();
     </script>
 </body>
 </html>
